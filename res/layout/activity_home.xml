@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!-- 将对应的属性抽取到样式中去-->
+    <TextView 
+        android:text="功能列表"
+        style="@style/TitleStyle"/>
+        <!--android:ellipsize="end" 添加省略点的所在位值  -->
+        <!-- 跑马灯效果 
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        	一直滚动效果
+        android:marqueeRepeatLimit="marquee_forever"
+        	自定义控件实现(重写原有的textView让其一直获取焦点)
+        -->
+<!--  
+    <TextView 
+        android:text="秋天 秋天悄悄过去留下小秘密aaaaaaaaaaaaaaaaaaaa"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:padding="5dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    -->
+    <com.example.mobilesafe.view.FocusTextView
+        android:text="秋天 秋天悄悄过去留下小秘密aaaaaaaaaaaaaaaaaaaa"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:padding="5dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        
+    </com.example.mobilesafe.view.FocusTextView>
+
+</LinearLayout>

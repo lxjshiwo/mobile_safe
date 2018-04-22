@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mobilesafe"
+    android:versionCode="1"
+    android:versionName="1.0" >
+	<!-- android:versionCode 本地应用版本号 -->
+	<!--  android:versionName="1.0" 1.0.0 
+			最后一位:
+				代表修复原版的bug
+			倒数第二位:
+				更新部分功能
+			第一位:
+				项目重大更新(代码重构,大部分功能添加)
+				-->
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="20" />
+	<!-- android:theme="@android:style/Theme.Light.NoTitleBar"  -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.example.mobilesafe.activity.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.example.mobilesafe.activity.HomeActivty"
+            ></activity>
+    </application>
+
+</manifest>
