@@ -38,9 +38,18 @@
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content" >
         
     </com.example.mobilesafe.view.FocusTextView>
+    <!-- android:numColumns=""指定列 -->
+    <!-- android:verticalSpacing="10dp"指定内部条目垂直方向间距 -->
+    <GridView 
+        android:id="@+id/gv_home"
+        android:numColumns="3"
+        android:verticalSpacing="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+    </GridView>
 
 </LinearLayout>
