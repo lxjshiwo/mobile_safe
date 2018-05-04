@@ -2,6 +2,7 @@ package com.example.mobilesafe.activity;
 
 import java.io.File;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -15,6 +16,8 @@ import com.example.mobilesafe.R;
 import com.example.mobilesafe.R.id;
 import com.example.mobilesafe.R.layout;
 import com.example.mobilesafe.R.menu;
+import com.example.mobilesafe.utils.ConstantValue;
+import com.example.mobilesafe.utils.SpUtils;
 import com.example.mobilesafe.utils.StreamUtil;
 import com.example.mobilesafe.utils.ToastUtil;
 import com.lidroid.xutils.HttpUtils;
@@ -125,10 +128,73 @@ public class SplashActivity extends ActionBarActivity {
         initData();
         //设置动画
         initAnimation();
+        //初始化数据库
+        initDB();
     }
 
 
-    /**
+    private void initDB() {
+    	//1.归属地数据库拷贝过程
+    	initAddressDB("address.db");
+		
+	}
+
+
+	/**
+	 *拷贝数据库到file文件夹下
+	 *@param dbName 数据库名
+	 */
+	private void initAddressDB(String dbName) {
+		//在files文件夹下创建同名数据库
+		File files = getFilesDir();
+		File file = new File(files,dbName);
+		InputStream stream = null;
+		FileOutputStream fos = null;
+		if(file.exists())
+		{
+			return;
+		}
+		//2.读取第三方资产目录下的文件
+		try {
+			//3,输入流读取
+			stream = getAssets().open(dbName);
+			//将读取的内容写入到指定文件夹的文件中去
+			fos = new FileOutputStream(file);
+			//4,每次的读取内容大小
+			byte[] bs = new byte[1024];
+			int temp = -1;
+			while((temp = stream.read(bs)) != -1)
+			{
+				fos.write(bs,0,temp);
+				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(stream != null && fos != null)
+			{
+				try {
+					stream.close();
+					fos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+		}
+
+//		getCacheDir();
+//		Environment.getExternalStorageDirectory().getAbsolutePath();
+
+		
+	}
+
+
+	/**
 	 * 弹出对话框提示用户更新
 	 */
 	protected void showUpdateDialog() {
@@ -288,7 +354,21 @@ public class SplashActivity extends ActionBarActivity {
 		//版本描述信息
 		//服务器版本号
 		//apk版本下载地址
-		checkVersion();
+		if(SpUtils.getBoolean(this,ConstantValue.OPEN_UPDATE, false))
+		{
+			checkVersion();
+		}
+		else
+		{
+			//直接进入界面 
+//			enterHome();
+			//消息机制 
+//			mHandler.sendMessageDelayed(msg,4000);
+			//在发送消息4秒后处理ENTER_HOME状态码对应消息
+			mHandler.sendEmptyMessageDelayed(ENTER_HOME, 4000);
+		}
+		
+		
 //		enterHome();
 
 

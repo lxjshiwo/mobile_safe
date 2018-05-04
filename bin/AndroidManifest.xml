@@ -19,6 +19,20 @@
 	<!-- android:theme="@android:style/Theme.Light.NoTitleBar"  -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+   	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+    
+   	 
+    
+    
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -37,6 +51,39 @@
             android:name="com.example.mobilesafe.activity.HomeActivty"
             ></activity>
         <activity android:name="com.example.mobilesafe.activity.SettingActivity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.TestActivity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.SetupOverActivity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.Setup1Activity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.Setup2Activity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.Setup3Activity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.Setup4Activity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.ContactListActivity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.AToolsActivity"></activity>
+        <activity android:name="com.example.mobilesafe.activity.QueryAddressActivity"></activity>
+        
+        
+        
+        <receiver 
+            android:name="com.example.mobilesafe.receiver.BootReceiver">
+            <intent-filter >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver 
+            android:name="com.example.mobilesafe.receiver.SmsReceiver">
+            <intent-filter >
+                <!-- 为了关联系统短信广播对应条件,先将编译版本降低为4.1.2 -->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        
+        
+        
+        <service android:name="com.example.mobilesafe.service.LocationService"></service>
+
+        
+        
     </application>
 
 </manifest>

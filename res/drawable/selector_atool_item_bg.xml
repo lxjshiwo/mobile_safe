@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 选中的深绿色题片 -->
+    <item 
+       android:state_pressed="true"
+       android:drawable="@android:color/darker_gray"> 
+    </item>
+    <!-- 浅绿色的图片 -->
+    <!-- 创建colors.xml文件 维护pink颜色设置 -->
+    <item 
+       android:drawable="@color/pink"> 
+    </item>
+</selector>

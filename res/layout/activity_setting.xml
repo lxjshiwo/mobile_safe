@@ -43,8 +43,26 @@
     </RelativeLayout>
  -->   
  	<com.example.mobilesafe.view.SettingItemView 
+ 	    xmlns:mobilesafe="http://schemas.android.com/apk/res/com.example.mobilesafe"
+ 	    android:id="@+id/siv_update"
  	    android:layout_width="match_parent"
- 	    android:layout_height="wrap_content">
+ 	    android:layout_height="wrap_content"
+ 	    mobilesafe:destitle="自动更新设置"
+ 	    mobilesafe:desoff="自动更新已关闭"
+ 	    mobilesafe:deson="自动更新已开启">
  	</com.example.mobilesafe.view.SettingItemView>
+ 	<!-- SettingItemView 需要在构建布局过程中指定相应的title和des字符内容 -->
+ 	<!-- 自定义属性-->
+ 	<!--  
+ 	<com.example.mobilesafe.view.SettingItemView 
+ 	    xmlns:mobilesafe="http://schemas.android.com/apk/res/com.example.mobilesafe"
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="wrap_content"
+ 	    mobilesafe:destitle="是否开启归电话属地显示"
+ 	    mobilesafe:desoff="属地显示已关闭"
+ 	    mobilesafe:deson="属地显示已开启">
+ 	</com.example.mobilesafe.view.SettingItemView>
+-->
+
 
 </LinearLayout>
